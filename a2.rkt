@@ -1,9 +1,6 @@
 ;; The first three lines of this file were inserted by DrRacket. They record metadata
 ;; about the language level of this file in a form that our tools can easily process.
 #reader(lib "htdp-beginner-abbr-reader.ss" "lang")((modname a2) (read-case-sensitive #t) (teachpacks ()) (htdp-settings #(#t constructor repeating-decimal #f #t none #f () #f)))
-(define handin "a2")
-(define collaboration-statement "I worked alone")
-
 (require 2htdp/image)
 (require 2htdp/universe)
 
@@ -13,36 +10,25 @@
 ;;;;; 1a
 ; f : Num Image Bool -> String
 (define (f x img b) "rubbish")
-(check-satisfied (f 5 empty-image true) string?)
 
 ;;;;; 1b
 ; nonsense : Nat String Bool -> String
 (define (nonsense x string b) "lol")
-(check-satisfied (nonsense 2 "lol" #true) string?)
-
 ;;;;; 1c
 ; palindrome? : String -> Bool
 (define (palindrome? string) #true)
-
-(check-satisfied (palindrome? "keke") boolean?)
 
 ;;;;; 1d
 ; image-straighten : Num Image -> Image
 (define (image-straighten x img) img)
 
-(check-satisfied (image-straighten 2 empty-image) image?)
-
 ;;;;; 1e
 ; exclusive-or : Bool Bool -> Bool
 (define (exclusive-or boo bool) #false)
 
-(check-satisfied (exclusive-or true false) boolean?)
-
 ;;;;; 1f
 ; date->day-of-week : String Int Int -> String
 (define (date->day-of-week str int num) "new")
-
-(check-satisfied (date->day-of-week "new" 1 1) string?)
 
 ;;;;;;;;;;;;;;;
 ;; Problem 2
@@ -78,7 +64,6 @@
   (round (* pi (number-square radius))))
 
 (check-within (circle-area 1)4 1)
-(check-satisfied (circle-area 1) number?)
 
 ;;;;; 2d
 ; image-area : Img -> Nat
@@ -96,10 +81,8 @@
 (define (make-name first middle-initial last)
   (string-append last ", " first " " middle-initial "."))
 
-(check-expect (make-name "alex" "d" "chen")
-              "chen, alex d.")
-(check-expect (make-name  "jane" "a" "ci")
-              "ci, jane a.")
+(check-expect (make-name "alex" "d" "chen") "chen, alex d.")
+(check-expect (make-name  "jane" "a" "ci") "ci, jane a.")
 
 ;;;;;;;;;;;;;;;
 ;; Problem 3
@@ -121,8 +104,7 @@
 (define (disjunction n1 n2)
   (string-append n1 " or " n2))
 
-(check-expect (disjunction "paper" "plastic")
-              "paper or plastic")
+(check-expect (disjunction "paper" "plastic") "paper or plastic")
 (check-satisfied (disjunction "paper" "hair") string?)
 
 ;;;;;;;;;;;;;;;
@@ -135,20 +117,17 @@
 (define (string-left n3)
   (substring n3 0 (quotient (string-length n3) 2)))
 
-(check-expect (string-left "thanksgiving")
-              "thanks")
-(check-expect (string-left "pretty")
-              "pre")
+(check-expect (string-left "thanksgiving") "thanks")
+(check-expect (string-left "pretty") "pre")
 
 ;;;;; 5b
 ; string-right String -> String
 ; (string-right n4) : produces the rightmost half of the string
 
 (define (string-right n4)
-  (substring n4 (quotient (+ 1(string-length n4))2)))
+  (substring n4 (quotient (+ 1(string-length n4)) 2)))
 
-(check-expect (string-right "thanksgiving")
-              "giving")
+(check-expect (string-right "thanksgiving") "giving")
 (check-satisfied (string-right "thanksgiving") string?)
 
 ;;;;; 5c
@@ -174,8 +153,6 @@
           (rotate 180 img)
           (rotate 270 img)))
 
-(check-satisfied (roll (triangle 35 "solid" "crimson")) image?)
-
 ;;;;;;;;;;;;;;;
 ;; Problem 7
 ;;;;;;;;;;;;;;;
@@ -185,38 +162,28 @@
 (define (horizontal-line n1)
   (line (- n1 1) 0 "black"))
 
-(check-satisfied (horizontal-line 100) image?)
-
 ;; 7b
 ; vertical-line : Num -> Img
 ; (vertical-line n2) produces a vertical line.
 (define (vertical-line n2)
   (line 0 (- n2 1) "black"))
 
-(check-satisfied (vertical-line 100) image?)
-
 ;;;;;;;;;;;;;;;
 ;; Problem 8
 ;;;;;;;;;;;;;;;
 ;; 8a
 ; add-left-border  : Img -> Img
-; (add-left-border tu) produeces a image attaching a
+; (add-left-border img) produeces a image attaching a
 ; one-pixel black border to the left side
-(define (add-left-border tu)
-  (beside (line 1 (image-height tu) "black") tu))
-
-(check-satisfied (add-left-border (square 30 "solid" "yellow"))
-                 image?)
+(define (add-left-border img)
+  (beside (line 1 (image-height img) "black") img))
 
 ;; 8b
 ; add-right-border : Img -> Img
-; (add-left-border tu) produeces a image attaching a one-pixel
+; (add-left-border img) produeces a image attaching a one-pixel
 ; black border to the right side
-(define (add-right-border tu)
-  (beside tu (line 1 (image-height tu) "black")))
-
-(check-satisfied (add-right-border (square 20 "solid" "pink"))
-                 image?)
+(define (add-right-border img)
+  (beside img (line 1 (image-height img) "black")))
 
 ;; 8c
 ; add-top-border : Img -> Img
@@ -225,35 +192,24 @@
 (define (add-top-border tu)
   (above (line (image-width tu) 1 "black") tu))
 
-(check-satisfied (add-top-border (square 20 "solid" "pink"))
-                 image?)
-
 ;; 8d
 ; add-bottom-border : Img -> Img
-; (add-bottom-border tu) : produeces a image having a one-pixel
+; (add-bottom-border img) : produeces a image having a one-pixel
 ;black border under it
-(define (add-bottom-border tu)
-  (above tu (line (image-width tu) 1 "black")))
-
-(check-satisfied (add-bottom-border
-                  (square 20 "solid" "pink")) image?)
+(define (add-bottom-border img
+  (above img (line (image-width img) 1 "black")))
 
 ;;;;;;;;;;;;;;;
 ;; Problem 9
 ;;;;;;;;;;;;;;;
 ; add-frame : Img -> Img
-; (add-frame tu) : makes one-pixel black border on all four
+; (add-frame img) : makes one-pixel black border on all four
 ; sides of the image
-(define (add-frame tu)
-  (above
-   (line (image-width tu) 1 "black")
-   (beside
-    (line 1 (image-height tu) "black")
-    tu
-    (line 1 (image-height tu) "black"))
-   (line (image-height tu) 1 "black")))
-
-(check-satisfied (add-frame (square 30 "solid" "pink")) image?)
+(define (add-frame img)
+  (above (line (image-width img) 1 "black")
+         (beside (line 1 (image-height img) "black")
+                 img (line 1 (image-height img) "black"))
+         (line (image-height img) 1 "black")))
 
 ;;;;;;;;;;;;;;;
 ;; Problem 10
@@ -286,9 +242,7 @@
    num "center" "top"
    img2))
 
-(draw-piece (tetris-t-piece 50 "sky blue")
-            0
-            (empty-scene 300 400))
+(draw-piece (tetris-t-piece 50 "sky blue") 0 (empty-scene 300 400))
 
 ;;;;;;;;;;;;;;;
 ;; Problem 12

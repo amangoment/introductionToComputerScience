@@ -1,8 +1,7 @@
 ;; The first three lines of this file were inserted by DrRacket. They record metadata
 ;; about the language level of this file in a form that our tools can easily process.
 #reader(lib "htdp-advanced-reader.ss" "lang")((modname a1) (read-case-sensitive #t) (teachpacks ()) (htdp-settings #(#t constructor repeating-decimal #t #t none #f () #f)))
-(define handin "a1")
-(define collaboration-statement "I worked alone")
+(require 2htdp/image )
 
 ;;;;;;;;;;;;;;;
 ;; Problem 1
@@ -14,7 +13,7 @@
 (define big-number 11111111111111111111)
 
 ;the username on your C211 Handin account
-(define handin-username "machen")
+(define handin-name "mangechen")
 
 ;the day your lab meets
 (define lab-day "Thursday")
@@ -35,13 +34,11 @@
 ;; Problem 3
 ;;;;;;;;;;;;;;;
 (define lab-reminder
-  (string-append "Reminder for " handin-username
-                 ": your C211 lab is on " lab-day "."))
+  (string-append "Reminder for " handin-username ": your C211 lab is on " lab-day "."))
 
 ;;;;;;;;;;;;;;;
 ;; Problem 4
 ;;;;;;;;;;;;;;;
-(require 2htdp/image )
 (define d (circle 10 "solid" favorite-rainbow-color))
 (define row-one (beside d d d d d))
 (define row-two (beside d d d d))
