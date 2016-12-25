@@ -4,9 +4,6 @@
 (require 2htdp/image)
 (require 2htdp/universe)
 
-(define handin "a7")
-(define collaboration-statement "I worked alone.")
-
 ; logical constants
 (define WIDTH 7)    ; the number of blocks horizontally
 (define HEIGHT 10)  ; the number of blocks vertically
@@ -244,8 +241,7 @@
 
 (check-expect (same-location? (make-block 10 7 "red")
                               (make-block 10 7 "yellow")) #true)
-(check-expect (same-location? (make-block 5 1 "blue")
-                              (make-block 5 1 "red")) #true)
+
 ;; 4d
 ; exists? : Block Land -> Bool
 ; (exists? block land) returns #true iff the block has the same
@@ -259,8 +255,7 @@
 
 (check-expect (exists? (make-block 6 4 "green") (world-land w1))
               #true)
-(check-expect (exists? (make-block 3 1 "green") (world-land w1))
-              #false)
+
 ;; 4e
 ; at-rest? : Block Land -> Bool
 ; (at-rest? block land) returns #true iff the block cannot move
@@ -316,7 +311,6 @@
 
 (check-satisfied (make-piece 1) block?)
 (check-satisfied (make-piece 2) block?)
-(check-satisfied (make-piece 3) block?)
 
 ;;;;;;;;;;;;;;;
 ;; Problem 6

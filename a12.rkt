@@ -4,10 +4,6 @@
 (require 2htdp/image)
 (require 2htdp/universe)
 
-(define handin "a12")
-(define collaboration-statement "I worked alone")
-
-
 ;;;;;;;;;;;;;;;
 ;; Problem 1
 ;;;;;;;;;;;;;;;
@@ -16,7 +12,8 @@
 ; to Alice and Bob, such that the child with less money always gets
 ; the next coin (with ties going to Alice)
 (define (give-away pocket)
-   (foldl ; PosInt [ListOf PosInt] -> [ListOf PosInt]
+   (foldl
+    ; PosInt [ListOf PosInt] -> [ListOf PosInt]
     (λ (denom accs)
            (if (<= (first accs) (second accs))
                (list (+ denom (first accs)) (second accs))

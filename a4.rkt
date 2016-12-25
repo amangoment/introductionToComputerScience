@@ -3,9 +3,6 @@
 #reader(lib "htdp-advanced-reader.ss" "lang")((modname a4) (read-case-sensitive #t) (teachpacks ()) (htdp-settings #(#t constructor repeating-decimal #t #t none #f () #f)))
 (require 2htdp/image)
 
-(define handin "a4")
-(define collaboration-statement "I worked alone")
-
 ;;;;;;;;;;;;;;;
 ;; Problem 1
 ;;;;;;;;;;;;;;;
@@ -155,7 +152,8 @@
 ;;;;;;;;;;;;;;;
 ;; 6a
 ; A Domino is a (make-domino Image-Color Image-Color Nat String)
-(define-struct domino [color1 color2 size orientation])
+(define-struct domino
+  [color1 color2 size orientation])
 
 ; make-domino : Image-Color Image-Color Nat String -> Domino
 ; domino? : Any -> Boolean
@@ -277,7 +275,6 @@
 ; domino-valid? : Any -> Boolean
 ; (domino-valid? a-domino) take one input and returns #true if and
 ; only if it represents a properly formed domino.
-
 (define (domino-valid? a-domino)
   (and
    (domino? a-domino)
@@ -301,7 +298,6 @@
                                           "ver")) #false)
 (check-expect (domino-valid? (make-domino "red" "blue"
                                           20 "vor")) #false)
-
 
 ;;;;;;;;;;;;;;;
 ;; Problem 7

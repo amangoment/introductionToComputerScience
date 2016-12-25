@@ -4,9 +4,6 @@
 (require 2htdp/image)
 (require 2htdp/universe)
 
-(define handin "a14")
-(define collaboration-statement "I worked alone")
-
 ;;;;;;;;;;;;;;;
 ;; Problem 1
 ;;;;;;;;;;;;;;;
@@ -123,11 +120,6 @@
    img))
 
 #|
-(check-satisfied (image-spin marilyn) image?)
-(check-satisfied (list marilyn (image-spin marilyn)) cons?)
-(check-satisfied (image-spin baboon) image?)
-(check-satisfied (list baboon (image-spin baboon)) cons?)
-
 (define soup (bitmap "soup.png"))
 (check-satisfied (image-spin soup) image?)
 (check-satisfied (list soup (image-spin soup)

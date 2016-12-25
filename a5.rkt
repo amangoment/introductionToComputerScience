@@ -3,9 +3,6 @@
 #reader(lib "htdp-advanced-reader.ss" "lang")((modname a5) (read-case-sensitive #t) (teachpacks ()) (htdp-settings #(#t constructor repeating-decimal #t #t none #f () #f)))
 (require 2htdp/image)
 
-(define handin "a5")
-(define collaboration-statement "I worked alone.")
-
 ;;;;;;;;;;;;;;;
 ;; Problem 1
 ;;;;;;;;;;;;;;;
@@ -153,7 +150,6 @@ Take one down and pass it around, no more bottles of beer on the wall.
 (check-expect (sum-of-squares 4) 30)
 (check-expect (sum-of-squares 100) 338350)
 
-
 ;;;;;;;;;;;;;;;
 ;; Problem 4
 ;;;;;;;;;;;;;;;
@@ -266,7 +262,6 @@ A BitString is one of
 
 (check-expect (make-noise 0) "")
 (check-satisfied (make-noise 16) string?)
-(check-satisfied (make-noise 50) string?)
 
 ;;;;;;;;;;;;;;;
 ;; Problem 6
@@ -307,8 +302,7 @@ A BitString is one of
 
 (check-expect (some-even? (cons 3 '())) #false)
 (check-expect (some-even? (cons 0 '())) #true)
-(check-expect (some-even? (cons 5 (cons 9 (cons -11 (cons 1 '())))))
-              #false)
+(check-expect (some-even? (cons 5 (cons 9 (cons -11 (cons 1 '()))))) #false)
 
 ;;;;;;;;;;;;;;;
 ;; Problem 7

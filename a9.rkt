@@ -3,10 +3,6 @@
 #reader(lib "htdp-advanced-reader.ss" "lang")((modname a9) (read-case-sensitive #t) (teachpacks ()) (htdp-settings #(#t constructor repeating-decimal #t #t none #f () #f)))
 (require 2htdp/image)
 
-(define handin "a9")
-(define collaboration-statement "I worked alone")
-
-
 ;;;;;;;;;;;;;;;
 ;; Problem 1
 ;;;;;;;;;;;;;;;

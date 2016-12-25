@@ -4,9 +4,6 @@
 (require 2htdp/image)
 (require 2htdp/universe)
 
-(define handin "a11")
-(define collaboration-statement "I worked alone")
-
 ;;;;;;;;;;;;;;;
 ;; Needed
 ;;;;;;;;;;;;;;;
@@ -56,7 +53,6 @@
   (local [(define (connect ls)
             (append ls ls2))]
     (connect ls1)))
-            
 
 (check-expect (join-together '(a b c) '(d e f g h))
               (list 'a 'b 'c 'd 'e 'f 'g 'h))
@@ -130,7 +126,6 @@
               "overwrite: -3 is out of bounds for (5 4 3 2 1)")
 
 (define BLANK '_)
-
 (define (blank? item) (equal? item BLANK))
 
 (check-expect (blank? BLANK) #true)
@@ -410,7 +405,6 @@
 ;;;;;;;;;;;;;;;
 ;; Problem 2
 ;;;;;;;;;;;;;;;
-
 ;; 2a
 #|
 (check-expect (slide-row-left '()) '())
@@ -595,7 +589,8 @@
 ; slide-up : Board -> Board
 ; (slide-up bd) returns it after sliding all rows in the indicated
 ; direction.
-(define (slide-up bd) (transpose (slide-left (transpose bd))))
+(define (slide-up bd)
+  (transpose (slide-left (transpose bd))))
 
 (check-expect (slide-up (slide-right b1))
               (list (list 64 64)
@@ -609,7 +604,8 @@
 ; slide-down : Board -> Board
 ; (slide-down bd) returns it after sliding all rows in the
 ; indicated direction.
-(define (slide-down bd) (transpose (slide-right (transpose bd))))
+(define (slide-down bd)
+  (transpose (slide-right (transpose bd))))
 
 (check-expect (slide-down (slide-right b1)) (list (list '_ '_)
                                                   (list 64 64)))
@@ -641,7 +637,8 @@
 ; (game-over? bd) returns #true if it represents either a winning
 ; or a losing configuration, and #false otherwise.
 (define (game-over? bd)
-  (or (game-won? bd) (game-lost? bd)))
+  (or (game-won? bd)
+      (game-lost? bd)))
 
 (check-expect (game-over? '((1024))) #true)
 (check-expect (game-over? '((2048 4) (8 4))) #true)
@@ -672,12 +669,12 @@
 (define b6 (key-handler b5 "a"))
 
 ; (map board->image (list b1 b4 b5 b6))
-
 (define b7 (key-handler b2 "left"))
 (define b8 (key-handler b7 "down"))
-; (map board->image (list b2 b7 b8))
 
+; (map board->image (list b2 b7 b8))
 (define b9 '((2 4) (_ _)))
+
 (check-expect (key-handler b9 "up") (list (list 2 4) (list '_ '_)))
 (check-expect (key-handler b9 "left") (list (list 2 4) (list '_ '_)))
 (check-expect (key-handler b9 "right") (list (list 2 4) (list '_ '_)))

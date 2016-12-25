@@ -4,9 +4,6 @@
 (require 2htdp/image)
 (require 2htdp/universe)
 
-(define handin "a6")
-(define collaboration-statement "I worked alone.")
-
 ;;;;;;;;;;;;;;;
 ;; Problem 1
 ;;;;;;;;;;;;;;;
@@ -33,9 +30,8 @@
 
 ;; 1d
 (define d-cons (cons 
-                     (cons empty (cons 8 (cons (cons (cons 2 empty)
-                                                     empty)
-                                               empty)))
+                     (cons empty
+                           (cons 8 (cons (cons (cons 2 empty) empty) empty)))
                      (cons 4 empty)))
 (define d-list (list (list '() 8 (list (list 2))) 4))
 
@@ -328,6 +324,7 @@
            (helper n1
                    (sub1 n2)
                    (* radius (/ (sub1 n2) n2))))]))
+
 ; diminishing-circles : Int Int -> ListOfImage
 ; (diminishing-circles n radius) returns a list of n images, each
 ; of which is a solid circle.
@@ -417,8 +414,6 @@
    (make-row n (make-square color2) (make-square color1))))
 
 (check-satisfied (make-checkerboard 1 "blue" "pink") image?)
-(check-satisfied (make-checkerboard 3 "pink" "blue") image?)
-(check-satisfied (make-checkerboard 8 "green" "yellow") image?)
 (check-satisfied (make-checkerboard 12 (shade-of-gray 50)
                                     (shade-of-gray 200)) image?)
 
@@ -428,7 +423,6 @@
 ; make-lumberjack-plaid : Int Int -> Img
 ; (make-lumberjack-plaid num-rows num-cols) returns an image
 ; resembling the plaid fabric for a lumberjack shirt.
-
 (define (make-lumberjack-plaid num-rows num-cols)
      (cond
        [(zero? num-rows) empty-image]
@@ -438,5 +432,3 @@
    (make-row num-cols (make-square "black") (make-square "darkred")))]))
 
 (check-satisfied (make-lumberjack-plaid 2 2) image?)
-(check-satisfied (make-lumberjack-plaid 2 11) image?)
-(check-satisfied (make-lumberjack-plaid 15 23) image?)

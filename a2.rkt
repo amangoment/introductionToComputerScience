@@ -33,7 +33,6 @@
 ;;;;;;;;;;;;;;;
 ;; Problem 2
 ;;;;;;;;;;;;;;;
-
 ;;;;; 2a
 ; number-square : Num -> Num
 ; (number-square x) produces the result of squaring x
@@ -143,7 +142,6 @@
 ;;;;;;;;;;;;;;;
 ;; Problem 6
 ;;;;;;;;;;;;;;;
-
 ; roll : Img -> Img
 ; (roll imm) : produces the image rotating clockwise 90 degrees
 

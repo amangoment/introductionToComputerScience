@@ -3,10 +3,6 @@
 #reader(lib "htdp-advanced-reader.ss" "lang")((modname a3) (read-case-sensitive #t) (teachpacks ()) (htdp-settings #(#t constructor repeating-decimal #t #t none #f () #f)))
 (require 2htdp/image)
 
-(define handin "a3")
-(define collaboration-statement "I worked alone")
-
-
 ;;;;;;;;;;;;;;;
 ;; Problem 1
 ;;;;;;;;;;;;;;;
@@ -45,6 +41,7 @@
 (check-expect (image-width purple-icon)
               (image-height purple-icon))
 (check-range craps 2 12)
+
 ; add
 (check-satisfied purple-icon image?)
 (check-satisfied craps number?)
@@ -66,7 +63,6 @@
 (check-expect (flip-coin 'heads) 'tails)
 (check-expect (flip-coin 'tails) 'heads)
 (check-expect (flip-coin (flip-coin 'tails)) 'tails)
-
 
 ;;;;;;;;;;;;;;;
 ;; Problem 3
@@ -102,7 +98,6 @@
 (check-expect (fib-like? 0 0 0)  #true)
 (check-expect (fib-like? 7 -2 5)  #true)
 (check-expect (fib-like? 10 15 20) #false)
-
 
 ;;;;;;;;;;;;;;;
 ;; Problem 5
@@ -227,11 +222,8 @@
       size1
       size2))
        
-
 (check-satisfied (tee-max 'large 'large) tee-size?)
 (check-member-of (tee-max 'medium 'small) 'medium 'small)
-
-
 
 ;; 6e
 ; tee-max3 : symbol symbol symbol -> symbol
@@ -244,7 +236,6 @@
 (check-satisfied (tee-max3 'large 'large 'large) tee-size?)
 (check-member-of (tee-max3 'medium 'small 'large)
                  'medium 'small 'large)
-
 
 ;;;;;;;;;;;;;;;
 ;; Problem 7
@@ -301,7 +292,6 @@
 (check-expect (party-on? 'fri) #true)
 (check-expect (party-on? 'sat) #true)
 
-
 ;;;;;;;;;;;;;;;
 ;; Problem 8
 ;;;;;;;;;;;;;;;
@@ -315,7 +305,6 @@
     (integer? (/ a 2))
     (+ 1 a)
     (+ 2 a)))
-
 
 (check-expect (next-odd 5) 7)
 (check-expect (next-odd -2)-1)
@@ -337,7 +326,6 @@
 (check-expect (next-collatz 5) 16)
 (check-expect (next-collatz 6) 3)
 (check-expect (next-collatz 16) 8)
-
 
 ;;;;;;;;;;;;;;;
 ;; Problem 9
@@ -407,6 +395,3 @@
 (check-expect (next-sweetest
          429237489284723749274982734982734982734892)
   429237489284723749274982734982734982734895)
-          
-
-      

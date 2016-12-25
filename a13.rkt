@@ -3,9 +3,6 @@
 #reader(lib "htdp-advanced-reader.ss" "lang")((modname a13) (read-case-sensitive #t) (teachpacks ()) (htdp-settings #(#t constructor repeating-decimal #t #t none #f () #f)))
 (require 2htdp/image)
 
-(define handin "a13")
-(define collaboration-statement "I worked alone")
-
 ;;;;;;;;;;;;;;;
 ;; Problem 1
 ;;;;;;;;;;;;;;;
@@ -78,8 +75,6 @@
                    [(or (= tiles 6)
                         (= tiles 2)) 1]
                    [else 1]))))
-
-(check-satisfied (play 30 smart-witch good-witch)list?)
 
 ;;;;;;;;;;;;;;;
 ;; Problem 2

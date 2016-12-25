@@ -3,10 +3,6 @@
 #reader(lib "htdp-advanced-reader.ss" "lang")((modname a10) (read-case-sensitive #t) (teachpacks ()) (htdp-settings #(#t constructor repeating-decimal #t #t none #f () #f)))
 (require 2htdp/image)
 
-(define handin "a10")
-(define collaboration-statement "I worked alone")
-
-
 ;;;;;;;;;;;;;;;
 ;; Problem 1
 ;;;;;;;;;;;;;;;
@@ -18,7 +14,6 @@
   (local [(define (connect ls)
             (append ls ls2))]
     (connect ls1)))
-            
 
 (check-expect (join-together '(a b c) '(d e f g h))
               (list 'a 'b 'c 'd 'e 'f 'g 'h))
@@ -237,7 +232,6 @@
                                  current-x)))]))]
     (faster ls i x)))
 
-
 (check-expect (overwrite '(a b c) 1 '_) (list 'a '_ 'c))
 (check-error (overwrite '(5 4 3 2 1) 5 6)
               "overwrite: 5 is out of bounds for (5 4 3 2 1)")
@@ -250,6 +244,7 @@
   (list
    (ignore (time (overwrite ls (- n 1) 1)))
    (ignore (time (overwrite/slow ls (- n 1) 1)))))
+
 #|
    n    | overwrite | overwrite/slow
 ====================================

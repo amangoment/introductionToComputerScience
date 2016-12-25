@@ -4,13 +4,9 @@
 (require 2htdp/image)
 (require 2htdp/universe)
 
-(define handin "a8")
-(define collaboration-statement "I worked alone.")
-
 (define RADIUS 30)
 (define SCENE-WIDTH 860)
 (define SCENE-HEIGHT 680)
-
 
 #|
    A PALETTE-COLORS is one of
@@ -280,8 +276,6 @@
 
 (check-satisfied (dot->image (make-dot "violet" 20 100 200))
                  image?)
-(check-satisfied (dot->image (make-dot "yellow" 20 100 200))
-                 image?)
 
 ; world->image : World -> Image
 ; (world->image world) returns a image of dots on a blackboard by
@@ -309,7 +303,6 @@
           (world-hold world)))))))
 
 (check-satisfied (world->image w1) image?)
-(check-satisfied (world->image w0) image?)
 
 ; key-handler : World KeyStroke -> World
 ; (key-handler world key) undo the last dot iff press right, redo
@@ -432,7 +425,6 @@
      (eighth PALETTE-COLORS)]))
 
 (check-expect (pick-one 1 2) 'orange)
-(check-expect (pick-one 10 2) 'orange)
 
 ; confetti : World -> World
 ; (confetti world) returns a blackboard can be used to draw image
