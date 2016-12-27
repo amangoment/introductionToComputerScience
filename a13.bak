@@ -470,6 +470,7 @@ Peg is one of
   - X
   - (make-expr [X X -> X] Expr Expr)
 |#
+
 (define-struct expr [op rand1 rand2])
 
 ;; 8b

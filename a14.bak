@@ -99,8 +99,10 @@
 #|
 (define marilyn (bitmap "marilyn.png"))
 (check-satisfied (list marilyn (image-negative marilyn)) cons?)
+
 (define baboon (bitmap "baboon.png"))
 (check-satisfied (list baboon (image-negative baboon)) cons?)
+
 (check-satisfied (list tiny-dino (image-negative tiny-dino)) cons?)
 |#
 
@@ -190,7 +192,8 @@
                           (list-head/help (sub1 n) (rest ls)))]))]
     (list-head/help init-n init-ls)))
 
-(check-error (list-head 5 '(a b c)) "list-head: 5 is too large for (a b c)")
+(check-error (list-head 5 '(a b c))
+             "list-head: 5 is too large for (a b c)")
 (check-expect (list-head 3 '(a b c d)) '(a b c))
 
 ; list-tail : Nat [ListOf X] -> [ListOf X]
@@ -208,7 +211,8 @@
               [else (list-tail/help (sub1 n) (rest ls))]))]
     (list-tail/help init-n init-ls)))
 
-(check-error (list-tail 5 '(a b c)) "list-tail: 5 is too large for (a b c)")
+(check-error (list-tail 5 '(a b c))
+             "list-tail: 5 is too large for (a b c)")
 (check-expect (list-tail 3 '(a b c d)) '(d))
 (check-expect (list-tail 1 '(a b c d)) '(b c d))
 
@@ -392,8 +396,7 @@
 |#
 
 (define-struct empty-tree [])
-(define-struct node
-  [data left right])
+(define-struct node [data left right])
 
 (define et (make-empty-tree))
 (define tr1 (make-node 5 et et))
@@ -535,7 +538,6 @@
 (check-expect (out-of-bounds? 10 4 10 20) #t)
 (check-expect (out-of-bounds? 3 30 10 30) #t)
 (check-expect (out-of-bounds? 3 35 10 30) #t)
-
 #|
 ;; 10c
 ; flood-fill : Image Nat Nat Color -> Image
@@ -611,7 +613,7 @@
 (define (draw-image image) image)
 
 ; paint : Image -> Image ; World -> World
-; (paint image) returns a image which can be used to draw image by
+; (paint img) returns a image which can be used to draw image by
 ; pressing mouse.
 (define (paint image)
   (big-bang image
