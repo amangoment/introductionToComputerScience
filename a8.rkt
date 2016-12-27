@@ -45,7 +45,6 @@
 (define PALETTE-SIZE (length PALETTE-COLORS))
 
 (define BAR-HEIGHT 5)
-
 (define DOT-RADIUS 20)
 
 ;; Example worlds

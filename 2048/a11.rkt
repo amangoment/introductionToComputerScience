@@ -23,7 +23,7 @@
     (list-head/help init-n init-ls)))
 
 (check-error (list-head 5 '(a b c))
-             "list-head: 5 is too large for (a b c)")
+ "list-head: 5 is too large for (a b c)")
 (check-expect (list-head 3 '(a b c d)) '(a b c))
 
 ; list-tail : Nat [ListOf X] -> [ListOf X]
@@ -552,7 +552,7 @@
                                     (list 8 '_ '_ '_)
                                     (list 16 8 '_ '_)
                                     (list 32 '_ '_ '_)))
- 
+
 (define (slide-right bd)
   (map slide-row-right bd))
 
