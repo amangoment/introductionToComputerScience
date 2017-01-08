@@ -6,6 +6,7 @@
 ;;;;;;;;;;;;;;;
 ;; Problem 1
 ;;;;;;;;;;;;;;;
+
 #|
    A Season is one of
    - 'spring
@@ -33,7 +34,8 @@
 (check-satisfied my-lab-instructor symbol?)
 (check-satisfied tis-the-season symbol?)
 (check-member-of tis-the-season 'spring 'summer 'fall 'winter)
-(check-expect (image-width purple-icon) (image-height purple-icon))
+(check-expect (image-width purple-icon)
+              (image-height purple-icon))
 (check-range craps 2 12)
 
 ; add
@@ -113,6 +115,7 @@
  ;;;;;;;;;;;;;;;
 ;; Problem 6
 ;;;;;;;;;;;;;;;
+
 ;; 6a
 ; tee-size : symbol -> boolean
 ; (tee-size? n1) : produces if the symbol belongs to tee-size
@@ -214,7 +217,7 @@
   (if (tee>=? size1 size2)
       size1
       size2))
-
+       
 (check-satisfied (tee-max 'large 'large) tee-size?)
 (check-member-of (tee-max 'medium 'small) 'medium 'small)
 
@@ -288,6 +291,7 @@
 ;;;;;;;;;;;;;;;
 ;; Problem 8
 ;;;;;;;;;;;;;;;
+
 ;; 8a
 ; next-odd : number -> number
 ; (next-odd a) : returns the smallest odd integer greater
@@ -339,6 +343,7 @@
 ;;;;;;;;;;;;;;;
 ;; Problem 10
 ;;;;;;;;;;;;;;;
+
 ;; 10a
 ; sweet? : number -> boolean
 ; (sweet? n) : takes a number and returns #true if n is a

@@ -17,7 +17,6 @@
     [(> num 1) (string-append (number->string num)
                               " bottles of beer")]
     [else "unreachable"]))
-
 (check-satisfied (b-o-b 1) string?)
 (check-expect (b-o-b 0) "no more bottles of beer")
 (check-expect (b-o-b 1) "1 bottle of beer")
@@ -48,12 +47,14 @@ Take one down and pass it around, no more bottles of beer on the wall.
 
 (check-expect (verses 0) "")
 (check-expect (verses 1)"1 bottle of beer on the wall, 1 bottle of beer.
-Take one down and pass it around, no more bottles of beer on the wall.")
+Take one down and pass it around, no more bottles of beer on the wall.
+")
 (check-expect (verses 2)
 "2 bottles of beer on the wall, 2 bottles of beer.
 Take one down and pass it around, 1 bottle of beer on the wall.
 1 bottle of beer on the wall, 1 bottle of beer.
-Take one down and pass it around, no more bottles of beer on the wall.")
+Take one down and pass it around, no more bottles of beer on the wall.
+")
 (check-expect (string-length (verses 2)) 233)
 (check-expect (string-length (verses 99)) 11657)
 
@@ -290,7 +291,8 @@ A BitString is one of
 ;; 6b
 ; some-even? : ListOfInt -> Bool
 ; (some-even? a-function) takes a ListOfInt and returns #true
-; iff at least one integer in the given list is even, and #false otherwise.
+; iff at least one integer in the given list is even, and
+; #false otherwise.
 (define (some-even? a-function)
   (cond
     [(empty? a-function) #false]
@@ -354,7 +356,8 @@ A BitString is one of
     [else (t-count (rest count))]))
 
 (check-expect (t-count '()) 0)
-(check-expect (t-count (cons 'T (cons 'T (cons 'A (cons 'T '()))))) 3)
+(check-expect (t-count
+               (cons 'T (cons 'T (cons 'A (cons 'T '()))))) 3)
 (check-within (t-count (make-dna-strand 10000)) 2500 100)
 
 (define (g-count count)

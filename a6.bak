@@ -41,9 +41,11 @@
 ;; Problem 2
 ;;;;;;;;;;;;;;;
 #|
+
    A NegInt is one of
    - -1
    - (sub1 NegInt)
+
 |#
 
 ;; 2a
@@ -168,8 +170,10 @@
                 (penny-pincher (rest piggybank)))]))
 
 (check-expect (penny-pincher (list)) '())
-(check-expect (penny-pincher (list 'quarter)) (list 'quarter))
-(check-expect (penny-pincher (list 'penny 'penny 'penny 'penny)) '())
+(check-expect (penny-pincher (list 'quarter))
+              (list 'quarter))
+(check-expect (penny-pincher (list 'penny 'penny 'penny 'penny))
+              '())
 (check-expect (penny-pincher '
                              (penny quarter dime penny nickel penny))
               (list 'quarter 'dime 'nickel))

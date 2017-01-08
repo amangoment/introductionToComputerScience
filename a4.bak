@@ -152,7 +152,8 @@
 ;;;;;;;;;;;;;;;
 ;; 6a
 ; A Domino is a (make-domino Image-Color Image-Color Nat String)
-(define-struct domino [color1 color2 size orientation])
+(define-struct domino
+  [color1 color2 size orientation])
 
 ; make-domino : Image-Color Image-Color Nat String -> Domino
 ; domino? : Any -> Boolean
@@ -190,6 +191,7 @@
 ; domino-scale : Num Num -> Num
 ; (domino-scale n) takes a domino and a positive number,
 ; and returns a new domino
+
 (define (domino-scale domino n)
   (make-domino
    (domino-color1 domino)
@@ -206,6 +208,7 @@
 ; domino->image : String Domino -> Image
 ; (domino->image color1 color2 size orientation) takes a
 ; domino and returns the corresponding image
+
 (define (domino->image a-domino)
   (cond
    [(equal? (domino-orientation a-domino) "hor")
@@ -284,6 +287,7 @@
      (equal? (domino-orientation a-domino) "hor")
      (equal? (domino-orientation a-domino) "ver"))))
 
+
 (check-satisfied d1 domino-valid?)
 (check-satisfied d2 domino-valid?)
 (check-expect (domino-valid? 5) #false)
@@ -343,6 +347,7 @@
 (check-expect (interval-a (neighbors 1)) 0)
 (check-expect (interval-b (neighbors -7)) -6)
 
+
 ;; 7f
 ; overlaps? : Interval Interval -> Boolean
 ; (overlaps? int1 int2) takes two Intervals and returns #true iff
@@ -351,6 +356,7 @@
   (or
   (< (interval-a int2) (interval-b int1))
   (< (interval-a int1) (interval-b int2))))
+   
 
 (define area (make-interval 0 5))
 (check-expect (overlaps? area (make-interval 3 10)) #true)
@@ -407,6 +413,7 @@
 ;;;;;;;;;;;;;;;
 ;; Problem 9
 ;;;;;;;;;;;;;;;
+
 ;; 9a
 ; Airport is a (make-airport String Nat Nat)
 

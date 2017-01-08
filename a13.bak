@@ -103,7 +103,7 @@
 #|
   A Packet is a (make-packet Symbol String Nat Nat])
 |#
-(define-struct packet [tag segment seq-number count])
+(define-struct packet (tag segment seq-number count))
 (define a-packet (make-packet 'brian "red fish" 3 9))
 
 ; string->packets : String Symbol Nat -> [ListOf Packet]
@@ -170,13 +170,13 @@
         (local
           [(define ans (sort (helper tag ls)
                              ; Packet Packet -> Packet Packet
-                             (lambda (x y)
+                             (λ (x y)
                                (< (packet-seq-number x)
                                   (packet-seq-number y)))))]
           (if (= (packet-count (first ans)) (length ans))
               (foldr
                ; Packet String -> String
-               (lambda (x acc)
+               (λ (x acc)
                  (string-append (packet-segment x) acc))
                ""
                ans)
@@ -308,13 +308,13 @@ Peg is one of
   (cond
     [(empty? ls) (if (zero? n)
                      '()
-                     #false)]
+                     #f)]
     [else (local
             [(define a1 (subset-sum (rest ls) n))
              (define a2 (subset-sum (rest ls) (- n (first ls))))]
             (if (false? a1)
                 (if (false? a2)
-                    #false
+                    #f
                     (cons (first ls) a2))
                 a1))]))
 
@@ -328,7 +328,8 @@ Peg is one of
 (check-expect (subset-sum '(1 3 -2 9 2 5) 6) (list 3 -2 5))
 (check-expect (subset-sum '(1 3 -2 9 2 5 -8) -4) (list 1 -2 5 -8))
 (check-expect (subset-sum '(15 22 14 26 32 9 16 8) 53) (list 22 14 9 8))
-(check-expect (subset-sum '(15 22 14 26 32 9 16 8) 28) #false)
+(check-expect (subset-sum '(15 22 14 26 32 9 16 8) 28)
+              #false)
 
 ;;;;;;;;;;;;;;;
 ;; Problem 6
@@ -409,7 +410,7 @@ Peg is one of
 (define (leaf? item)
   (if
    (equal? item et)
-   #false
+   #f
    (and (empty-tree? (node-left item))
         (empty-tree? (node-right item)))))
 
@@ -524,7 +525,7 @@ Peg is one of
 ; with a virus.
 (define (infect-op f n w)
   ; Num Num -> Num
-  (lambda (x y)
+  (λ (x y)
     (if (zero? (random n))
         (error w)
         (f x y))))
